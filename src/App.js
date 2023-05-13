@@ -1,11 +1,11 @@
 import "./App.css";
-import { Fragment, useContext, useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import Book from "./Components/Books/Book";
 import BookCard from "./Components/Books/BookCard";
-import BookContext from "./context/book";
+import useBookContext from "./hooks/use-bookContext";
 
 function App() {
-  const { apiRequest, bookList } = useContext(BookContext);
+  const { apiRequest, bookList } = useBookContext();
 
   let renderBooks = bookList.map((v, i) => {
     return (

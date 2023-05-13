@@ -1,10 +1,10 @@
-import { Fragment, React, useContext, useState } from "react";
-import BookContext from "../../context/book";
+import { Fragment, React, useState } from "react";
+import useBookContext from "../../hooks/use-bookContext";
 
 function Book() {
   const [bookName, SetBookName] = useState("");
 
-  const { handleBook } = useContext(BookContext);
+  const { handleBook } = useBookContext();
 
   const addBooks = (event) => {
     event.preventDefault();

@@ -1,12 +1,11 @@
-import { Fragment, React, useContext, useState } from "react";
-import BookContext from "../../context/book";
+import { Fragment, React, useState } from "react";
+import useBookContext from "../../hooks/use-bookContext";
 
 function BookCard(props) {
   const [editText, setEditText] = useState("");
   const [editInputCheck, setInputCheck] = useState(false);
 
-  const { handleBookEdit, handleBookDelete } =
-    useContext(BookContext);
+  const { handleBookEdit, handleBookDelete } = useBookContext();
 
   const handleEdit = () => {
     setInputCheck(true);
