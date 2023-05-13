@@ -16,7 +16,7 @@ const Cards = (props) => {
 
           <div className="card-body" onClick={handleClick}>
             <h5 className="card-title">
-              {props?.alt ? props?.alt : "Sample Title"}
+              {props?.name ? props?.name : "Sample Title"}
             </h5>
             <p className="card-text">
               {props?.alt ? props?.alt : "Sample Content"}
