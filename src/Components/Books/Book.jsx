@@ -1,16 +1,19 @@
 import { Fragment, React, useContext, useState } from "react";
 import BookContext from "../../context/book";
 
-function Book(props) {
+function Book() {
   const [bookName, SetBookName] = useState("");
 
-  // const {count,increment} = useContext(BookContext);
+  const { handleBook } = useContext(BookContext);
 
   const addBooks = (event) => {
     event.preventDefault();
     if (bookName != "") {
-      // props.onClick({id:(Math.trunc(Math.random() * 999)),name : bookName});
-      props.onClick({ name: bookName });
+      handleBook({
+        name: bookName,
+        photographer: "surbhi shokeen",
+        src: { original: "https://picsum.photos/id/237/200/300" },
+      });
     }
   };
 
@@ -40,9 +43,8 @@ function Book(props) {
               type="submit"
               disabled={bookName == "" ? true : false}
               className="btn btn-primary"
-          
             >
-              Add  
+              Add
             </button>
           </form>
         </div>
