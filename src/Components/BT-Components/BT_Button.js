@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 
-function Button() {
+function BT_Button(props) {
   return (
     <Fragment>
       <button type="button" className="btn btn-primary">
-        Primary
+        Primary -- {props}
       </button>
       <button type="button" className="btn btn-secondary">
         Secondary
@@ -35,4 +35,4 @@ function Button() {
   );
 }
 
-export default Button;
+export defa

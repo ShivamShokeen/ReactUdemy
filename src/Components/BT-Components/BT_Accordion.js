@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-function Accordion() {
+function BT_Accordion() {
   return (
     <Fragment>
       <div className="accordion" id="accordionExample">
@@ -102,4 +102,4 @@ function Accordion() {
   );
 }
 
-export default Accordion;
+export default BT_Accordion;
