@@ -1,51 +1,27 @@
 import "./App.css";
-import { Fragment, useEffect } from "react";
-import Book from "./Components/Books/Book";
-import BookCard from "./Components/Books/BookCard";
-import useBookContext from "./hooks/use-bookContext";
+import { Fragment } from "react";
+import Sidemenu from "./Components/Sidemenu/Sidemenu";
 
 function App() {
-  const { apiRequest, bookList } = useBookContext();
-
-  let renderBooks = bookList.map((v, i) => {
-    return (
-      <Fragment key={i}>
-        <BookCard
-          className="mt-4"
-          key={i}
-          textName={v?.photographer}
-          content={v?.photographer}
-          image={v?.src?.original}
-          alt={v?.alt}
-          id={v?.id}
-          name={v?.name}
-          footerImage="/Assets/Images/heart.svg"
-        ></BookCard>
-      </Fragment>
-    );
+  const sideMenuList = [
+    "Dropdown",
+    "Accordion",
+    "Button",
+    "Flex",
+    "Tables",
+    "Search",
+  ];
+  const renderSideMenu = sideMenuList.map((v, i) => {
+    return <Sidemenu name={v} key={i}></Sidemenu>;
   });
-
-  // API get Request on refresh
-
-  useEffect(() => {
-    apiRequest("get", {}, []);
-  }, []);
-
-  // API get Request on refresh
 
   return (
     <Fragment>
       <div className="container-fluid">
-        {/* Input to add books */}
-        <Book></Book>
-        {/* Input to add books */}
-
-        <br></br>
-
         <div className="row">
-          <div className="col">
-            <div style={{ display: "inline-flex" }}>{renderBooks}</div>
-          </div>
+          <div className="col-1">{renderSideMenu}</div>
+
+          <div className="col">Body</div>
         </div>
       </div>
       <hr style={{ border: "4px dotted black" }}></hr>
