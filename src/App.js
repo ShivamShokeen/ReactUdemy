@@ -21,7 +21,11 @@ function App() {
         <div className="row">
           <div className="col-1">{renderSideMenu}</div>
 
-          <div className="col">Body</div>
+          <div className="col">Body
+          
+          
+          </div>
+
         </div>
       </div>
       <hr style={{ border: "4px dotted black" }}></hr>
