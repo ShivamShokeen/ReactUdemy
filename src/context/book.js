@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useCallback } from "react";
 import axios from "axios";
 
 const BookContext = createContext();
@@ -6,28 +6,28 @@ const BookContext = createContext();
 function Provider({ children }) {
   let [bookList, setBookList] = useState([]);
 
-  const handleBook = async (callback) => {
-    let checkname = bookList.find((v) => v?.name == callback?.name);
+  const handleBook = useCallback(async (callback) => {
+    let checkname = bookList.find((v) => v?.name === callback?.name);
     if (!checkname) {
       let postData = await apiRequest("post", callback, 0);
     } else {
       alert("Please add unique book name");
     }
-  };
+  }, []);
 
-  const handleBookDelete = async (callback) => {
+  const handleBookDelete = useCallback(async (callback) => {
     let deleteData = await apiRequest("delete", {}, callback);
-  };
+  }, []);
 
-  const handleBookEdit = async (event, id) => {
-    if (event != undefined) {
+  const handleBookEdit = useCallback(async (event, id) => {
+    if (event !== undefined) {
       let patchData = await apiRequest("patch", event, id);
     }
-  };
+  }, []);
 
   function apiRequest(type, payload, id) {
     var promise = new Promise((resolve, reject) => {
-      if (type == "get") {
+      if (type === "get") {
         axios
           .get("http://localhost:3001/books")
           .then((respose) => {
@@ -39,11 +39,10 @@ function Provider({ children }) {
           });
       }
 
-      if (type == "post") {
+      if (type === "post") {
         axios
           .post("http://localhost:3001/books", payload)
           .then((response) => {
-            console.log("response", response);
             setBookList([...bookList, response?.data]);
           })
           .catch((error) => {
@@ -51,17 +50,17 @@ function Provider({ children }) {
           });
       }
 
-      if (type == "patch") {
+      if (type === "patch") {
         axios
           .patch("http://localhost:3001/books/" + id, payload)
           .then((response) => {
             let findIndex = bookList.findIndex(
-              (v) => v.id == response?.data?.id
+              (v) => v.id === response?.data?.id
             );
-            if (findIndex != -1) {
+            if (findIndex !== -1) {
               setBookList(
                 bookList.map((u) =>
-                  u.id != response?.data?.id ? u : response?.data
+                  u.id !== response?.data?.id ? u : response?.data
                 )
               );
             }
@@ -71,12 +70,12 @@ function Provider({ children }) {
           });
       }
 
-      if (type == "delete") {
+      if (type === "delete") {
         axios
           .delete("http://localhost:3001/books/" + id)
           .then((response) => {
-            let findIndex = bookList.findIndex((v) => v.id == id);
-            if (findIndex != -1) {
+            let findIndex = bookList.findIndex((v) => v.id === id);
+            if (findIndex !== -1) {
               setBookList(
                 bookList.filter((item, index) => index !== findIndex)
               );

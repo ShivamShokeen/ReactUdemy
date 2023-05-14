@@ -28,7 +28,7 @@ function App() {
   // API get Request on refresh
 
   useEffect(() => {
-    apiRequest("get", {}, 0);
+    apiRequest("get", {}, []);
   }, []);
 
   // API get Request on refresh
