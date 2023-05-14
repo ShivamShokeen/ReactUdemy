@@ -1,14 +1,27 @@
 import "./App.css";
 import { Fragment } from "react";
+import Sidemenu from "./Components/Sidemenu/Sidemenu";
 
 function App() {
+  const sideMenuList = [
+    "Dropdown",
+    "Accordion",
+    "Button",
+    "Flex",
+    "Tables",
+    "Search",
+  ];
+  const renderSideMenu = sideMenuList.map((v, i) => {
+    return <Sidemenu name={v} key={i}></Sidemenu>;
+  });
+
   return (
     <Fragment>
       <div className="container-fluid">
-        <br></br>
-
         <div className="row">
-          <div className="col">Hello</div>
+          <div className="col-1">{renderSideMenu}</div>
+
+          <div className="col">Body</div>
         </div>
       </div>
       <hr style={{ border: "4px dotted black" }}></hr>
