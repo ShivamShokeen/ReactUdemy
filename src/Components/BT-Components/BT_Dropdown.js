@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-function Dashboard() {
+function BT_Dropdown() {
   return (
     <Fragment>
       <div className="dropdown">
@@ -35,4 +35,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default BT_Dropdown;

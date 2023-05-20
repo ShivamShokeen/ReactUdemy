@@ -1,30 +1,36 @@
 import "./App.css";
 import { Fragment } from "react";
-import Sidemenu from "./Components/Sidemenu/Sidemenu";
+import DashboardPG from "./Pages/DashboardPG";
+import BT_Accordion from "./Components/BT-Components/BT_Accordion";
 
 function App() {
-  const sideMenuList = [
-    "Dropdown",
-    "Accordion",
-    "Button",
-    "Flex",
-    "Tables",
-    "Search",
-  ];
-  const renderSideMenu = sideMenuList.map((v, i) => {
-    return <Sidemenu name={v} key={i}></Sidemenu>;
-  });
 
+  let accordionList = [
+    {
+      id:1,
+      heading: "Accordion 1",
+      content: "First Accordion",
+    },
+    {
+      id:2,
+      heading: "Accordion 2",
+      content: "Second Accordion",
+    },
+    {
+      id:3,
+      heading: "Accordion 3",
+      content: "Third Accordion",
+    },
+    {
+      id:4,
+      heading: "Accordion 4",
+      content: "Forth Accordion",
+    },
+  ]; 
   return (
     <Fragment>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-1">{renderSideMenu}</div>
-
-          <div className="col">Body</div>
-        </div>
-      </div>
-      <hr style={{ border: "4px dotted black" }}></hr>
+      <DashboardPG></DashboardPG>
+      <BT_Accordion accordionList={accordionList}></BT_Accordion>
     </Fragment>
   );
 }

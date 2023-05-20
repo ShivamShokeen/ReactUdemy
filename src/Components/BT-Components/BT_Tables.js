@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-function Tables() {
+function BT_Tables() {
   return (
     <Fragment>
       <table className="table">
@@ -36,4 +36,4 @@ function Tables() {
   );
 }
 
-export default Tables;
+export default BT_Tables;

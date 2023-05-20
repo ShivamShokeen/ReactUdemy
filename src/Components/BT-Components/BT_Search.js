@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-function Search() {
+function BT_Search() {
   return (
     <Fragment>
       <div className="input-group flex-nowrap">
@@ -19,4 +19,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default BT_Search;

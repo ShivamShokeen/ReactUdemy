@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-function Flex() {
+function BT_Flex() {
   return (
     <Fragment>
       <div className="container">
@@ -14,4 +14,4 @@ function Flex() {
   );
 }
 
-export default Flex;
+export default BT_Flex;
