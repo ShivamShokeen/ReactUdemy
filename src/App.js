@@ -1,35 +1,61 @@
 import "./App.css";
 import { Fragment } from "react";
-import Sidemenu from "./Components/Sidemenu/Sidemenu";
-import Accordion from "./Components/BT-Components/BT_Accordion";
-import BT_Button from "./Components/BT-Components/BT_Button";
+import DashboardPG from "./Pages/DashboardPG";
+import BT_Accordion from "./Components/BT-Components/BT_Accordion";
 
 function App() {
-  const sideMenuList = [
-    "Dropdown",
-    "Accordion",
-    "Button",
-    "Flex",
-    "Tables",
-    "Search",
-  ];
-  const renderSideMenu = sideMenuList.map((v, i) => {
-    return <Sidemenu name={v} key={i}></Sidemenu>;
-  });
 
+  let accordionList = [
+    {
+      id:1,
+      heading: "Accordion 1",
+      content: "First Accordion",
+    },
+    {
+      id:2,
+      heading: "Accordion 2",
+      content: "Second Accordion",
+    },
+    {
+      id:3,
+      heading: "Accordion 3",
+      content: "Third Accordion",
+    },
+    {
+      id:4,
+      heading: "Accordion 4",
+      content: "Forth Accordion",
+    },
+  ]; 
   return (
     <Fragment>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-1">{renderSideMenu}</div>
-
-          <div className="col">Body
-            <BT_Button></BT_Button>
+      <DashboardPG></DashboardPG>
+      <BT_Accordion accordionList={accordionList}></BT_Accordion>
+      <div className="accordion" id="accordionExample" hidden>
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="headingOne">
+            <button
+              className="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              Accordion Item #1
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            className="accordion-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample"
+          >
+            <div className="accordion-body">1
+            </div>
           </div>
-
         </div>
       </div>
-      <hr style={{ border: "4px dotted black" }}></hr>
     </Fragment>
   );
 }

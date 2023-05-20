@@ -1,105 +1,57 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
-function BT_Accordion() {
-  return (
-    <Fragment>
-      <div className="accordion" id="accordionExample">
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="headingOne">
-            <button
-              className="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne"
+function BT_Accordion(props) {
+  let renderAccordion = [];
+  let [accState, setAccState] = useState(0);
+  let [accColl, setAccColl] = useState(false);
+
+  if (props.accordionList?.length > 0) {
+    renderAccordion = props.accordionList.map((v) => {
+      return (
+        <div
+          className="accordion"
+          onClick={(e) => {
+            setAccState(v?.id);
+            setAccColl(accColl ? false : true);
+          }}
+          key={v?.id}
+          id={"accordionExampleO" + 1}
+        >
+          <div className="accordion-item">
+            <h2 className="accordion-header" id={"#headingO" + v?.id}>
+              <button
+                className="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target={"collapseO" + v?.id}
+                aria-expanded={accState == v?.id && accColl ? true : false}
+                aria-controls={"#collapseO" + v?.id}
+              >
+                {v?.heading ? v.heading : "Sample Accordion"}
+              </button>
+            </h2>
+            <div
+              id={"#collapseO" + v?.id}
+              className={
+                accState == v?.id && accColl
+                  ? "accordion-collapse collapse show"
+                  : "accordion-collapse collapse hide"
+              }
+              aria-labelledby={"#headingO" + v?.id}
+              data-bs-parent={"#accordionExampleO" + 1}
             >
-              Accordion Item #1
-            </button>
-          </h2>
-          <div
-            id="collapseOne"
-            className="accordion-collapse collapse show"
-            aria-labelledby="headingOne"
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body">
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              <div className="accordion-body">
+                {v?.content ? v?.content : "Sample Content"}
+              </div>
             </div>
           </div>
         </div>
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="headingTwo">
-            <button
-              className="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo"
-              aria-expanded="false"
-              aria-controls="collapseTwo"
-            >
-              Accordion Item #2
-            </button>
-          </h2>
-          <div
-            id="collapseTwo"
-            className="accordion-collapse collapse"
-            aria-labelledby="headingTwo"
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body">
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="headingThree">
-            <button
-              className="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseThree"
-              aria-expanded="false"
-              aria-controls="collapseThree"
-            >
-              Accordion Item #3
-            </button>
-          </h2>
-          <div
-            id="collapseThree"
-            className="accordion-collapse collapse"
-            aria-labelledby="headingThree"
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body">
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
-      </div>
-    </Fragment>
-  );
+      );
+    });
+  } else {
+    renderAccordion = <span className="d-flex justify-content-center">No data found!</span>
+  }
+  return <Fragment>{renderAccordion}</Fragment>;
 }
 
 export default BT_Accordion;
