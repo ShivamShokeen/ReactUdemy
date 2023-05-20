@@ -9,7 +9,7 @@ function BT_Accordion(props) {
     renderAccordion = props.accordionList.map((v) => {
       return (
         <div
-          className="accordion"
+          className="accordion mb-3"
           onClick={(e) => {
             setAccState(v?.id);
             setAccColl(accColl ? false : true);
@@ -49,7 +49,9 @@ function BT_Accordion(props) {
       );
     });
   } else {
-    renderAccordion = <span className="d-flex justify-content-center">No data found!</span>
+    renderAccordion = (
+      <span className="d-flex justify-content-center">No data found!</span>
+    );
   }
   return <Fragment>{renderAccordion}</Fragment>;
 }
