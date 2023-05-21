@@ -1,36 +1,42 @@
 import React, { Fragment } from "react";
 
-function BT_Dropdown() {
+function BT_Dropdown(props) {
+  
+  let renderElement = [];
+
+  if (props?.dropdownList?.length > 0) {
+    renderElement = props.dropdownList.map((v) => {
+      
+      let optionRender = v?.option.map((o) => {
+        return (
+          <Fragment>
+            <option value={o.value}>{ o?.name }</option>
+          </Fragment>
+        )
+      })
+      return (
+        <Fragment>
+          <label className="form-label mb-2">{v?.label}</label>
+          <select class="form-select mb-2">
+            <option selected>{v.placeholder}</option>
+            {optionRender}
+
+            {/* <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option> */}
+          </select>
+        </Fragment>
+      );
+    });
+  } else {
+    renderElement = (
+      <div className="d-flex justify-content-center">No data found!</div>
+    );
+  }
+  
   return (
     <Fragment>
-      <div className="dropdown">
-        <button
-          className="btn btn-secondary dropdown-toggle"
-          type="button"
-          id="dropdownMenuButton1"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Dropdown button
-        </button>
-        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li>
-            <a className="dropdown-item" href="#">
-              Action
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Another action
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Something else here
-            </a>
-          </li>
-        </ul>
-      </div>
+      {renderElement}
     </Fragment>
   );
 }
