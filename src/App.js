@@ -3,6 +3,11 @@ import { Fragment } from "react";
 import DashboardPG from "./Pages/DashboardPG";
 import BT_Accordion from "./Components/BT-Components/BT_Accordion";
 import BT_Dropdown from "./Components/BT-Components/BT_Dropdown";
+import RouteCustom from "./Components/Link-Handler/Route";
+import BT_Flex from "./Components/BT-Components/BT_Flex";
+import BT_Tables from "./Components/BT-Components/BT_Tables";
+import BT_Search from "./Components/BT-Components/BT_Search";
+import BT_Button from "./Components/BT-Components/BT_Button";
 
 function App() {
 
@@ -81,9 +86,39 @@ function App() {
   return (
     <Fragment>
       <div className="container-fluid mt-4">
-        {/* <DashboardPG></DashboardPG> */}
-        {/* <BT_Accordion accordionList={accordionList}></BT_Accordion> */}
-        <BT_Dropdown dropdownList={dropdownList}></BT_Dropdown>
+        <div className="row">
+          <div className="col-2">
+            <DashboardPG></DashboardPG>
+          </div>
+
+          <div className="col-10">
+            <RouteCustom path="/accordion">
+              <BT_Accordion accordionList={accordionList}></BT_Accordion>
+            </RouteCustom>
+            <RouteCustom path="/dropdown">
+              <BT_Dropdown dropdownList={dropdownList}></BT_Dropdown>
+            </RouteCustom>
+            <RouteCustom path="/flex">
+              <BT_Flex></BT_Flex>
+            </RouteCustom>
+
+            <RouteCustom path="/button">
+              <BT_Button>Test</BT_Button>
+            </RouteCustom>
+
+            <RouteCustom path="/tables">
+              <BT_Tables></BT_Tables>
+            </RouteCustom>
+
+            <RouteCustom path="/search">
+              <BT_Search></BT_Search>
+            </RouteCustom>
+
+            <RouteCustom path="/">
+              <BT_Dropdown dropdownList={dropdownList}></BT_Dropdown>
+            </RouteCustom>
+          </div>
+        </div>
       </div>
     </Fragment>
   );
