@@ -16,15 +16,17 @@ function RouterLink({ to, children }) {
     <Fragment>
       <ul className="list-group">
         <li
-          className="list-group-item my-2"
+          className={
+            to == window.location.pathname
+              ? "list-group-item my-2 active"
+              : "list-group-item my-2"
+          }
           style={{ cursor: "pointer" }}
           aria-disabled="true"
           onClick={handleClick}
+          title={children}
         >
-          {/* <a href={to} onClick={handleClick}> */}
           {children}
-          {/* </a> */}
-          {/* {props?.name ? props?.name : "No Name"} */}
         </li>
       </ul>
     </Fragment>
