@@ -27,6 +27,10 @@ const Sidemenu = (props) => {
       name: "Search",
       route: "/search",
     },
+    {
+      name: "Modal",
+      route: "/modal",
+    },
   ];
   const renderSideMenu = sideMenuList.map((v, i) => {
     return (
