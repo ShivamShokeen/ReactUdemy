@@ -8,6 +8,7 @@ import BT_Flex from "./Components/BT-Components/BT_Flex";
 import BT_Tables from "./Components/BT-Components/BT_Tables";
 import BT_Search from "./Components/BT-Components/BT_Search";
 import BT_Button from "./Components/BT-Components/BT_Button";
+import BT_Modal from "./Components/BT-Components/BT_Modal";
 
 function App() {
 
@@ -112,6 +113,10 @@ function App() {
 
             <RouteCustom path="/search">
               <BT_Search></BT_Search>
+            </RouteCustom>
+
+            <RouteCustom path="/modal">
+              <BT_Modal></BT_Modal>
             </RouteCustom>
 
             <RouteCustom path="/">
