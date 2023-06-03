@@ -19,7 +19,6 @@ function BT_Modal() {
 
   const handleSaveModal = (event) => {
     event.preventDefault();
-    console.log("form Data", formData);
     setShowModal(false);
   };
 

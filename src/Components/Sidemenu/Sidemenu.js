@@ -31,6 +31,10 @@ const Sidemenu = (props) => {
       name: "Modal",
       route: "/modal",
     },
+    {
+      name: "Increment/Decrement",
+      route: "/incdec",
+    },
   ];
   const renderSideMenu = sideMenuList.map((v, i) => {
     return (
