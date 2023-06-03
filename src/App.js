@@ -9,6 +9,7 @@ import BT_Tables from "./Components/BT-Components/BT_Tables";
 import BT_Search from "./Components/BT-Components/BT_Search";
 import BT_Button from "./Components/BT-Components/BT_Button";
 import BT_Modal from "./Components/BT-Components/BT_Modal";
+import IncDec from "./Examples/IncDec";
 
 function App() {
 
@@ -34,6 +35,22 @@ function App() {
       content: "Forth Accordion",
     },
   ]; 
+
+  let tableDisplayColumns = [
+    'id','name','last'
+  ]
+  let tableList = [
+    {
+      id: 1,
+      last: "Shokeen",
+      name: "Shivam",
+    },
+    {
+      name: "Surbhi",
+      last: "Shokeen",
+      id: 2,
+    },
+  ];
 
 
     let dropdownList = [
@@ -108,7 +125,10 @@ function App() {
             </RouteCustom>
 
             <RouteCustom path="/tables">
-              <BT_Tables></BT_Tables>
+              <BT_Tables
+                tableList={tableList}
+                tableDisplayColumns={tableDisplayColumns}
+              ></BT_Tables>
             </RouteCustom>
 
             <RouteCustom path="/search">
@@ -117,6 +137,14 @@ function App() {
 
             <RouteCustom path="/modal">
               <BT_Modal></BT_Modal>
+            </RouteCustom>
+
+            <RouteCustom path="/modal">
+              <BT_Modal></BT_Modal>
+            </RouteCustom>
+
+            <RouteCustom path="/incdec">
+              <IncDec></IncDec>
             </RouteCustom>
 
             <RouteCustom path="/">
