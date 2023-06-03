@@ -1,44 +1,55 @@
 import React, { Fragment, useReducer, useState } from "react";
 
 const IncDec = () => {
-
   const reducer = (state, action) => {
-    if (
-      action == "increment" ||
-      action == "decrement" ||
-      action == "updateCount"
-    ) {
-      if (action == "increment") {
+    switch (action?.type) {
+      case "increment":
         return {
           ...state,
           count: state.count + 1,
         };
-      }
 
-      if (action == "decrement") {
+      case "decrement":
         return {
           ...state,
           count: state.count - 1,
         };
-      }
-      if (action == "updateCount") {
+
+      case "updateCount":
         return {
           ...state,
-          count: state.count + state.valueToAdd,
-          valueToAdd : 0
+          count: state.count + state?.valueToAdd,
+          valueToAdd: 0,
         };
-      }
-    } else {
-      if (parseInt(action) > 0) {
+
+      case "updateValuetoAdd":
         return {
           ...state,
-          valueToAdd: parseInt(action),
+          valueToAdd: parseInt(action?.value)
         };
-      } else {
+
+      case "updateCount":
+        if (parseInt(action.value) > 0) {
+          return {
+            ...state,
+            valueToAdd: parseInt(action?.value),
+          };
+        } else {
+          return {
+            ...state,
+          };
+        }
+
+      case "reset":
+        return {
+          ...state,
+          count: action?.value,
+          valueToAdd: 0,
+        };
+      default:
         return {
           ...state,
         };
-      }
     }
   };
 
@@ -48,18 +59,21 @@ const IncDec = () => {
   });
 
   const handleInc = () => {
-    dispatch("increment");
+    dispatch({ type: "increment", value: 1 });
   };
 
   const handleDec = () => {
-    dispatch("decrement");
+    dispatch({ type: "decrement", value: 1 });
   };
 
   const handleSubmit = (e) => {
-   
     e.preventDefault();
-     dispatch("updateCount");
+    dispatch({ type: "updateCount", value: state.valueToAdd });
   };
+
+  const handleReset = () => {
+    dispatch({type:'reset',value:10})
+  }
 
   return (
     <Fragment>
@@ -76,6 +90,10 @@ const IncDec = () => {
           <button className="btn btn-primary" onClick={handleDec}>
             Decrement
           </button>
+          &nbsp;&nbsp;
+          <button className="btn btn-primary" onClick={handleReset}>
+            Reset
+          </button>
         </div>
       </div>
 
@@ -89,7 +107,7 @@ const IncDec = () => {
             value={state.valueToAdd || ""}
             className="form-control mt-2"
             onChange={(e) => {
-              dispatch(e?.target?.value)
+              dispatch({ type: "updateValuetoAdd", value: e?.target?.value });
             }}
           ></input>
           <br></br>
