@@ -1,59 +1,48 @@
 import React, { Fragment, useReducer, useState } from "react";
+import { produce } from "immer";
 
 const IncDec = () => {
   const reducer = (state, action) => {
     switch (action?.type) {
       case "increment":
-        return {
-          ...state,
-          count: state.count + 1,
-        };
+        state.count = state.count + 1;
+        return;
 
       case "decrement":
-        return {
-          ...state,
-          count: state.count - 1,
-        };
+        state.count = state.count - 1;
+        return;
 
       case "updateCount":
-        return {
-          ...state,
-          count: state.count + state?.valueToAdd,
-          valueToAdd: 0,
-        };
+        state.count = state.count + state.valueToAdd;
+        state.valueToAdd = 0;
+        return;
 
       case "updateValuetoAdd":
-        return {
-          ...state,
-          valueToAdd: parseInt(action?.value)
-        };
+        state.valueToAdd = parseInt(action?.value);
+        return;
 
       case "updateCount":
         if (parseInt(action.value) > 0) {
-          return {
-            ...state,
-            valueToAdd: parseInt(action?.value),
-          };
+          state.valueToAdd = parseInt(action?.value);
+          return;
         } else {
-          return {
-            ...state,
-          };
+          return;
         }
 
       case "reset":
-        return {
-          ...state,
-          count: action?.value,
-          valueToAdd: 0,
-        };
+        state.count = action.value;
+        state.valueToAdd = 0;
+        return;
+
       default:
-        return {
-          ...state,
-        };
+        return;
+      // return {
+      //   ...state,
+      // };
     }
   };
 
-  const [state, dispatch] = useReducer(reducer, {
+  const [state, dispatch] = useReducer(produce(reducer), {
     count: 10,
     valueToAdd: 0,
   });
@@ -72,8 +61,8 @@ const IncDec = () => {
   };
 
   const handleReset = () => {
-    dispatch({type:'reset',value:10})
-  }
+    dispatch({ type: "reset", value: 10 });
+  };
 
   return (
     <Fragment>
