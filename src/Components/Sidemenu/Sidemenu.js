@@ -35,6 +35,10 @@ const Sidemenu = (props) => {
       name: "Increment/Decrement",
       route: "/incdec",
     },
+    {
+      name: "Movie Song Dashboard",
+      route: "/moviesong",
+    },
   ];
   const renderSideMenu = sideMenuList.map((v, i) => {
     return (

@@ -10,6 +10,7 @@ import BT_Search from "./Components/BT-Components/BT_Search";
 import BT_Button from "./Components/BT-Components/BT_Button";
 import BT_Modal from "./Components/BT-Components/BT_Modal";
 import IncDec from "./Examples/IncDec";
+import MovieSong from "./Components/MovieSong/MovieSong";
 
 function App() {
 
@@ -145,6 +146,10 @@ function App() {
 
             <RouteCustom path="/incdec">
               <IncDec></IncDec>
+            </RouteCustom>
+
+            <RouteCustom path="/moviesong">
+              <MovieSong></MovieSong>
             </RouteCustom>
 
             <RouteCustom path="/">
