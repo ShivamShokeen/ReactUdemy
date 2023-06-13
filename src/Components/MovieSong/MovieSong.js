@@ -38,7 +38,6 @@ const MovieSong = () => {
 
   const resetAll = () => {
     dispatch(reset());
-    // dispatch(resetMovie());
   };
 
   const renderSongList = songList.map((v, i) => {
