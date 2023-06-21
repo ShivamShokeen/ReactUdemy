@@ -11,6 +11,7 @@ import BT_Button from "./Components/BT-Components/BT_Button";
 import BT_Modal from "./Components/BT-Components/BT_Modal";
 import IncDec from "./Examples/IncDec";
 import MovieSong from "./Components/MovieSong/MovieSong";
+import CarDashboard from "./Components/Cars/Components/CarDashboard";
 
 function App() {
 
@@ -150,6 +151,10 @@ function App() {
 
             <RouteCustom path="/moviesong">
               <MovieSong></MovieSong>
+            </RouteCustom>
+
+            <RouteCustom path="/carpage">
+              <CarDashboard></CarDashboard>
             </RouteCustom>
 
             <RouteCustom path="/">
