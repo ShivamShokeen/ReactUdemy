@@ -4,6 +4,14 @@ import RouterLink from "../Link-Handler/RouterLink";
 const Sidemenu = (props) => {
   const sideMenuList = [
     {
+      name: "Car Page",
+      route: "/carpage",
+    },
+    {
+      name: "Bike Page",
+      route: "/bikepage",
+    },
+    {
       name: "Dropdown",
       route: "/dropdown",
     },
@@ -38,10 +46,6 @@ const Sidemenu = (props) => {
     {
       name: "Movie Song Dashboard",
       route: "/moviesong",
-    },
-    {
-      name: "Car Page",
-      route: "/carpage",
     },
   ];
   const renderSideMenu = sideMenuList.map((v, i) => {

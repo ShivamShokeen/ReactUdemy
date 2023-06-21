@@ -10,10 +10,12 @@ import { store } from "./ReactRedux/StoreRedux";
 import {store as carStore} from "./Components/Cars/Store"
 
 import { Provider as ReactReduxProvider } from "react-redux";
+import { BikeStore } from "./Components/Bikes/Store/BikeIndex";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ReactReduxProvider store={(store, carStore)}>
+  <ReactReduxProvider store={(BikeStore)}>
+    {/* Remove one of the store */}
     <NavigationProvider>
       <React.StrictMode>
         <Provider>
