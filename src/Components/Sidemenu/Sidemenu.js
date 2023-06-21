@@ -39,6 +39,10 @@ const Sidemenu = (props) => {
       name: "Movie Song Dashboard",
       route: "/moviesong",
     },
+    {
+      name: "Car Page",
+      route: "/carpage",
+    },
   ];
   const renderSideMenu = sideMenuList.map((v, i) => {
     return (
