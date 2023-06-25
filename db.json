@@ -17,5 +17,17 @@
       },
       "id": 2
     }
-  ]
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Shivam"
+    },
+    {
+      "id": 2,
+      "name": "Surbhi"
+    }
+  ],
+  "albums": [],
+  "photos": []
 }

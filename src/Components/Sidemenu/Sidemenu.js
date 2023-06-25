@@ -4,6 +4,10 @@ import RouterLink from "../Link-Handler/RouterLink";
 const Sidemenu = (props) => {
   const sideMenuList = [
     {
+      name: "Gallery",
+      route: "/gallery-dashboard",
+    },
+    {
       name: "Dropdown",
       route: "/dropdown",
     },

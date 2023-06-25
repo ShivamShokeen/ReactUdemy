@@ -7,13 +7,16 @@ import { Provider } from "./context/book";
 import { NavigationProvider } from "./context/navigation";
 import { store } from "./ReactRedux/StoreRedux";
 
-import {store as carStore} from "./Components/Cars/Store"
+import { store as carStore } from "./Components/Cars/Store"
+
+import { galleryStore } from "./Components/Gallery/Store";
 
 import { Provider as ReactReduxProvider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ReactReduxProvider store={(store, carStore)}>
+  // store={(store, carStore)}
+  <ReactReduxProvider store={(galleryStore)}>
     <NavigationProvider>
       <React.StrictMode>
         <Provider>

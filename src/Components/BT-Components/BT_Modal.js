@@ -43,7 +43,7 @@ function BT_Modal() {
             <div className="mb-3">
               <label className="form-label">Username</label>
               <input
-                type="username"
+                type="text"
                 name="username"
                 placeholder="Enter Username"
                 value={formData.name}
