@@ -3,7 +3,7 @@ import { UserReducer } from "./Slices/UserSlice";
 
 const galleryStore = configureStore({
   reducer: {
-    user: UserReducer,
+  user: UserReducer,
   },
 });
 

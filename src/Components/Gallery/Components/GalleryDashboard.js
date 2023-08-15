@@ -4,7 +4,7 @@ import GalleryList from "./GalleryList"
 const GalleryDashboard = () => {
     return (
       <Fragment>
-        Hell yaaa <br /> <br />
+        Hell yaaa Gallart <br /> <br />
         <GalleryList />
       </Fragment>
     );
