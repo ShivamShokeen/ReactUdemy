@@ -12,6 +12,7 @@ import BT_Modal from "./Components/BT-Components/BT_Modal";
 import IncDec from "./Examples/IncDec";
 import MovieSong from "./Components/MovieSong/MovieSong";
 import CarDashboard from "./Components/Cars/Components/CarDashboard";
+import GalleryDashboard from "./Components/Gallery/Components/GalleryDashboard";
 
 function App() {
 
@@ -155,6 +156,10 @@ function App() {
 
             <RouteCustom path="/carpage">
               <CarDashboard></CarDashboard>
+            </RouteCustom>
+
+            <RouteCustom path="/gallery-dashboard">
+              <GalleryDashboard></GalleryDashboard>
             </RouteCustom>
 
             <RouteCustom path="/">
